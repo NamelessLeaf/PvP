@@ -1,0 +1,9 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/NamelessLeaf/PvP
+build-by-default: true
+branches:
+- main
+projects:
+  PvP:
+    path: ""
+    libs:
+...

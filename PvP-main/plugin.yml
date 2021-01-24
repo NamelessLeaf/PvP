@@ -1,0 +1,10 @@
+name: PvP
+main: NamelessLeaf\PvP\Main
+author: NamelessLeaf
+version: "2.0"
+description: "A Thing"
+api: 3.17.2
+commands:
+ playpvp:
+  description: "Open PvP UI"
+  permission: use.pvp

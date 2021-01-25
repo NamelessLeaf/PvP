@@ -38,7 +38,7 @@ class Main extends PluginBase implements Listener {
   
   public function form($player){
     $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-    $form = $api->createCustomForm(function (Player $player, array $data = null){
+    $form = $api->createSimpleForm(function (Player $player, array $data = null){
       $result = $data;
       if($result === null){
         return true;

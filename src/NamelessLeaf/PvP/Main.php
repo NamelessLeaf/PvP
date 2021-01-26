@@ -24,43 +24,39 @@ class Main extends PluginBase implements Listener {
     $this->getLogger()->info("Disabled");
   }
   
-  public function onCommand(CommandSender $sender, Command $cmd, String $lable, Array $args) : bool {
-    
-    switch($cmd->getName()){
-      case "playpvp":
-        if($sender instanceof Player){
-          $this->form($sender);
-        }else{
-          $sender->sendMessage("WTF R U A PIG RUNNING A COMMAND????");
-        }
-    }
-    return true;
-  }
-  
-  public function form($player){
-    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-    $form = $fromapi->createSimpleForm(function (Player $player, array $data = null){
-      $result = $data;
-      if($result === null){
-        return true;
-      }
-      switch($result){
-        case 0:
-          $player->sendMessage("Sending You To 1v1");
-        break;
-          
-        case 1:
-          $player->sendMessage("Sending You To Team PvP");
-        break;
-      }
-    });
-    $form->setTitle("PvP");
-    $form->setContent("Choose A Game");
-    $form->addButton("1vs1");
-    $form->addButton("2vs2");
-    $form->addButton("Sumo");
-    $form->addButton("FFA");
-    $form->sendToPlayer($player);
-    return $form;
+$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
+if ($api === null || $api->isDisabled()) {
+}
+$form = $api->createSimpleForm(function (Player $sender, array $data) {
+$result = $data[0];
+if ($result === null) {
+return true;
+}
+switch ($result) {
+case 0:
+Server::getInstance()->dispatchCommand($sender, "command");
+break;
+case 1:
+Server::getInstance()->dispatchCommand($sender, "command");
+break;
+case 2:
+Server::getInstance()->dispatchCommand($sender, "command");
+break;
+case 3:
+Server::getInstance()->dispatchCommand($sender, "command");
+break;
+
+}
+return false;
+});
+$form->setTitle("");
+$form->setContent("");
+$form->addButton("Button1");
+$form->addButton("Button2");
+$form->addButton("Button3");
+$form->addButton("Button4");
+$form->sendToPlayer($player);
+}
+}
   }
 }

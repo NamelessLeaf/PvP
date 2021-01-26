@@ -24,3 +24,5 @@ class Main extends PluginBase implements Listener {
     $this->getLogger()->info("Disabled");
   }
   
+}
+}

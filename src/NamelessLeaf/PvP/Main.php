@@ -58,5 +58,3 @@ $form->addButton("Button4");
 $form->sendToPlayer($player);
 }
 }
-  }
-}

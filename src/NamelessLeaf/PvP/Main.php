@@ -24,37 +24,3 @@ class Main extends PluginBase implements Listener {
     $this->getLogger()->info("Disabled");
   }
   
-$api = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
-if ($api === null || $api->isDisabled()) {
-}
-$form = $api->createSimpleForm(function (Player $sender, array $data) {
-$result = $data[0];
-if ($result === null) {
-return true;
-}
-switch ($result) {
-case 0:
-Server::getInstance()->dispatchCommand($sender, "command");
-break;
-case 1:
-Server::getInstance()->dispatchCommand($sender, "command");
-break;
-case 2:
-Server::getInstance()->dispatchCommand($sender, "command");
-break;
-case 3:
-Server::getInstance()->dispatchCommand($sender, "command");
-break;
-
-}
-return false;
-});
-$form->setTitle("");
-$form->setContent("");
-$form->addButton("Button1");
-$form->addButton("Button2");
-$form->addButton("Button3");
-$form->addButton("Button4");
-$form->sendToPlayer($player);
-}
-}

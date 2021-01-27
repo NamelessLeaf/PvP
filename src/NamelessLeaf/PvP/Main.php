@@ -24,5 +24,15 @@ class Main extends PluginBase implements Listener {
     $this->getLogger()->info("Disabled");
   }
   
-  public function onCommand(CommandSender $sender, Command $cmd, String $lable, Array $args) : bool
+  public function onCommand(CommandSender $sender, Command $cmd, String $lable, Array $args) : bool {
+    
+    switch($cmd->getName()){
+      case "playpvp":
+        if($sender instanceof Player){
+          $sender->sendMessage("Opening Form")
+        }else{
+          $sender->sendMessage("YOu Da Pig OO")
+        }
+    }
+  }
 }

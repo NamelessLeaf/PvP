@@ -23,10 +23,4 @@ class Main extends PluginBase implements Listener {
   public function onDisable(){
     $this->getLogger()->info("Disabled");
   }
-  
-  switch($cmd->getName()){
-    case "playpvp":
-      if($sender instanceof Player){
-        
-      } 
 }

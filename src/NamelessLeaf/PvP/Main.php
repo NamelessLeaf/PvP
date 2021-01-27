@@ -28,8 +28,5 @@ class Main extends PluginBase implements Listener {
     case "playpvp":
       if($sender instanceof Player){
         
-      }
-  }
-
+      } 
 }
-

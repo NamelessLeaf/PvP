@@ -29,10 +29,11 @@ class Main extends PluginBase implements Listener {
     switch($cmd->getName()){
       case "playpvp":
         if($sender instanceof Player){
-          $sender->sendMessage("Opening Form")
+          $sender->sendMessage("Opening Form");
         }else{
-          $sender->sendMessage("YOu Da Pig OO")
+          $sender->sendMessage("YOu Da Pig OO");
         }
     }
+    return true;
   }
 }

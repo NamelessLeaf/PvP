@@ -42,7 +42,7 @@ class Main extends PluginBase implements Listener {
     $form = $api->createSimpleForm(function (Player $player, int $data = null){
       $result = $data;
       if($result === null){
-        result true;
+        return true;
       }
     
     });

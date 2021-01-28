@@ -47,5 +47,9 @@ class Main extends PluginBase implements Listener {
     
     });
     $form->setTitle("will has a small pp");
+    $form->setContent("and hes gay");
+    $form->addButton("Click here to agree");
+    $form->sendToPlayer($player);
+    return $form;
   }
 }

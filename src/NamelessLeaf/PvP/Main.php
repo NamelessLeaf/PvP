@@ -46,6 +46,6 @@ class Main extends PluginBase implements Listener {
       }
     
     });
-    $form->setTitle("will has a small pp")
+    $form->setTitle("will has a small pp");
   }
 }

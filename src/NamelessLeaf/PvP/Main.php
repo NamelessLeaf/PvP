@@ -36,30 +36,4 @@ class Main extends PluginBase implements Listener {
     }
     return true;
   }
-    public function From($player){
-        $plugin = $this->getServer()->getPluginManager();
-        $formapi = $plugin->getPlugin("FormAPI");
-        $form = $formapi->createSimpleForm(function (Player $event, array $args){
-            $result = $args[0];
-            $player = $event->getPlayer();
-            if($result === null){
-            }
-            switch($result){
-                case 0:
-                    return;
-                case 1:
-                    $this->enableForm($player);
-                    return;
-                case 2:
-                    $this->disableForm($player);
-                    return;
-            }
-        });
-        $form->setTitle(TF::BOLD . TF::BLACK . "FlyUI Menu");
-        $form->setContent(TF::GRAY . "Enable/Disable Fly Mode!");
-        $form->addButton(TF::GREEN . "Enable");
-        $form->addButton(TF::RED . "Disable");
-        $form->addButton(TF::WHITE . "Cancel");
-        $form->sendToPlayer($player);
-    }  
 }

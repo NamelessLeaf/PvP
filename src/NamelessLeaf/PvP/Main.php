@@ -46,11 +46,11 @@ class Main extends PluginBase implements Listener {
       }
       switch($result){
         case 0:
-          
+          $player->sendMessage("Bitch")
         break;
           
         case 1:
-          
+          $player->sendMessage("My Code Works")
         break;
       }
     });
@@ -58,6 +58,7 @@ class Main extends PluginBase implements Listener {
     $form->setContent("Choose A PvP Gamemode");
     $form->addButton("Sumo");
     $form->addButton("1vs1");
+    $form->addButton("Exit");
     $form->sendToPlayer($player);
     return $form;
   }

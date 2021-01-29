@@ -44,7 +44,6 @@ class Main extends PluginBase implements Listener {
       if($result === null){
         return true;
       }
-      
     });
     $form->setTitle("PvP");
     $form->setContent("Choose A PvP Game To Play");

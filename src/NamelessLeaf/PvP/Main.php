@@ -39,17 +39,16 @@ class Main extends PluginBase implements Listener {
   
   public function form($player){
     $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-    $form = $api->createSimpleForm(function (Player $player, int $data = null){
+    $form = $api->createSimpleForm(fucntion (Player $player, int $data = null){
       $result = $data;
       if($result === null){
         return true;
       }
     });
-    $form->setTitle("PvP");
-    $form->setContent("Choose A PvP Game To Play");
+    $form->setTitle("Play PvP");
+    $form->setContent("Choose A PvP Gamemode");
     $form->addButton("Sumo");
     $form->addButton("1vs1");
-    $form->addButton("Exit")
     $form->sendToPlayer($player);
     return $form;
   }

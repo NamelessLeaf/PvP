@@ -49,7 +49,7 @@ class Main extends PluginBase implements Listener {
     $form->setContent("Choose A PvP Game To Play");
     $form->addButton("Sumo");
     $form->addButton("1vs1");
-    $form->addButton("$cExit")
+    $form->addButton("Exit")
     $form->sendToPlayer($player);
     return $form;
   }

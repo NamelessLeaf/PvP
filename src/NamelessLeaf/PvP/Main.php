@@ -44,15 +44,6 @@ class Main extends PluginBase implements Listener {
       if($result === null){
         return true;
       }
-      switch($result){
-        case 0:
-          
-        break;
-          
-        case 1:
-          
-        break;
-      }
       
     });
     $form->setTitle("PvP");

@@ -44,11 +44,22 @@ class Main extends PluginBase implements Listener {
       if($result === null){
         return true;
       }
-    
+      switch($result){
+        case 0:
+          $player->sendMessage("Action Completed");
+        break;
+          
+        case 1:
+          $player->sendMessage("Action Completed");
+        break;
+      }
+      
     });
-    $form->setTitle("will has a small pp");
-    $form->setContent("and hes gay");
-    $form->addButton("Click here to agree");
+    $form->setTitle("PvP");
+    $form->setContent("Choose A PvP Game To Play");
+    $form->addButton("Sumo");
+    $form->addButton("1vs1");
+    $form->addButton("$cExit")
     $form->sendToPlayer($player);
     return $form;
   }

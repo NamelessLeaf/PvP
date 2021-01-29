@@ -46,11 +46,11 @@ class Main extends PluginBase implements Listener {
       }
       switch($result){
         case 0:
-          $player->sendMessage("Action Completed");
+          
         break;
           
         case 1:
-          $player->sendMessage("Action Completed");
+          
         break;
       }
       

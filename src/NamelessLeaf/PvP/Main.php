@@ -14,6 +14,13 @@ use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 use jojoe77777\FormAPI;
 
+
+	
+	private $address;
+	
+	private $port;
+
+
 class Main extends PluginBase implements Listener {
   
   public function onEnable(){

@@ -50,7 +50,7 @@ class Main extends PluginBase implements Listener {
         break;
           
         case 1:
-         $player->transfer($17.1.1.1, $19320);
+         $player->transfer($adress, $port);
         break;
       }
     });

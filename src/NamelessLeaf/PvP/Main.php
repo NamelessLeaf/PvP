@@ -13,12 +13,8 @@ use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 use jojoe77777\FormAPI;
-
-
-	
-	private $address;
-	
-	private $port;
+use pocketmine\command\CommandExecutor;
+use pocketmine\command\ConsoleCommandSender;
 
 
 class Main extends PluginBase implements Listener {
@@ -38,7 +34,7 @@ class Main extends PluginBase implements Listener {
         if($sender instanceof Player){
           $this->form($sender);
         }else{
-          $sender->sendMessage("YOu Da Pig OO");
+          $sender->sendMessage("You Da Pig OO");
         }
     }
     return true;
@@ -57,7 +53,8 @@ class Main extends PluginBase implements Listener {
         break;
           
         case 1:
-         $player->transfer($adress, $port);
+         $command = "transferserver 147.135.233.227 19132";
+	 $this->getServer()->getCommandMap()->dispatch($sender, $command);
         break;
       }
     });

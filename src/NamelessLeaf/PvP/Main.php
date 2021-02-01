@@ -50,7 +50,7 @@ class Main extends PluginBase implements Listener {
         break;
           
         case 1:
-          $player->sendMessage("My Code Works");
+         $this->player->transfer(1->host, $this->1);
         break;
       }
     });

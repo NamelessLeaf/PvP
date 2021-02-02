@@ -48,7 +48,7 @@ class Main extends PluginBase implements Listener {
 					$form->setTitle("pvp transfer");
 					$form->setContent("choose a mode");
 					$form->addButton("1vs1");
-					$form-addButton("2vs2");
+					$form->addButton("2vs2");
 					$form->sendToPlayer($sender);
 					return $form;
 				}

@@ -16,53 +16,46 @@ use jojoe77777\FormAPI;
 use pocketmine\command\CommandExecutor;
 use pocketmine\command\ConsoleCommandSender;
 
-
 class Main extends PluginBase implements Listener {
-  
-  public function onEnable(){
-    $this->getLogger()->info("Enabled");
-  }
-  
-  public function onDisable(){
-    $this->getLogger()->info("Disabled");
-  }
-  
-  public function onCommand(CommandSender $sender, Command $cmd, String $lable, Array $args) : bool {
-    
-    switch($cmd->getName()){
-      case "playpvp":
-        if($sender instanceof Player){
-          $this->form($sender);
-        }else{
-          $sender->sendMessage("You Da Pig OO");
-        }
+	
+    public function onEnable() {
+		$api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+		if($api === null){
+			$this->getServer()->getPluginManager()->disablePlugin($this);			
+		}
     }
-    return true;
-  }
-  
-  public function form($player){
-    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-    $form = $api->createSimpleForm(function (Player $player, int $data = null){
-      $result = $data;
-      if($result === null){
-        return true;
-      }
-      switch($result){
-        case 0:
-          $player->sendMessage("Bitch");
-        break;
-          
-        case 1:
-         $command = "transferserver 147.135.233.227 19132";
-        break;
-      }
-    });
-    $form->setTitle("Play PvP");
-    $form->setContent("Choose A PvP Gamemode");
-    $form->addButton("Sumo");
-    $form->addButton("1vs1");
-    $form->addButton("Exit");
-    $form->sendToPlayer($player);
-    return $form;
-  }
+	
+    public function onCommand(CommandSender $sender, Command $cmd, string $label,array $args) : bool {
+		switch($cmd->getName()){
+			case "server":
+				if($sender instanceof Player) {
+					$api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+					$form = $api->createSimpleForm(function (Player $sender, array $data){
+					$result = $data[0];
+					
+					if($result === null){
+						return true;
+					}
+						switch($result){
+							case 0:
+								$command = "transferserver 147.135.233.227 19132";
+								$this->getServer()->getCommandMap()->dispatch($sender, $command);
+							break;
+              
+								
+						}
+					});
+					$form->setTitle("TransferUI Screen");
+					$form->setContent("Please choose your server.");
+					$form->addButton(TextFormat::BOLD . "§c§lRebirth§b§lPE §a§lMinigames");	                          	
+					$form->sendToPlayer($sender);
+				}
+				else{
+					$sender->sendMessage(TextFormat::RED . "Use this Command in-game.");
+					return true;
+				}
+			break;
+		}
+		return true;
+    }
 }

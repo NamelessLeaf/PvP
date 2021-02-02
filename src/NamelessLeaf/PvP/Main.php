@@ -50,7 +50,7 @@ class Main extends PluginBase implements Listener {
 					$form->addButton("1vs1");
 					$form-addButton("2vs2")
 					$form->sendToPlayer($sender);
-					return $form
+					return $form;
 				}
 				else{
 					$sender->sendMessage(TextFormat::RED . "Use this Command in-game.");

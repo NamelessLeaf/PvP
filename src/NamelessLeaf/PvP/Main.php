@@ -16,47 +16,53 @@ use jojoe77777\FormAPI;
 use pocketmine\command\CommandExecutor;
 use pocketmine\command\ConsoleCommandSender;
 
+
 class Main extends PluginBase implements Listener {
-	
-    public function onEnable() {
-		$api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-		if($api === null){
-			$this->getServer()->getPluginManager()->disablePlugin($this);			
-		}
+  
+  public function onEnable(){
+    $this->getLogger()->info("Enabled");
+  }
+  
+  public function onDisable(){
+    $this->getLogger()->info("Disabled");
+  }
+  
+  public function onCommand(CommandSender $sender, Command $cmd, String $lable, Array $args) : bool {
+    
+    switch($cmd->getName()){
+      case "playpvp":
+        if($sender instanceof Player){
+          $this->form($sender);
+        }else{
+          $sender->sendMessage("You Da Pig OO");
+        }
     }
-	
-    public function onCommand(CommandSender $sender, Command $cmd, string $label,array $args) : bool {
-		switch($cmd->getName()){
-			case "playpvp":
-				if($sender instanceof Player) {
-					$api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-					$form = $api->createSimpleForm(function (Player $sender, array $data){
-					$result = $data[0];
-					
-					if($result === null){
-						return true;
-					}
-						switch($result){
-							case 0:
-								$command = "transferserver 147.135.233.227 19132";
-							break;
-              
-								
-						}
-					});
-					$form->setTitle("pvp transfer");
-					$form->setContent("choose a mode");
-					$form->addButton("1vs1");
-					$form->addButton("2vs2");
-					$form->sendToPlayer($sender);
-					return $form;
-				}
-				else{
-					$sender->sendMessage(TextFormat::RED . "Use this Command in-game.");
-					return true;
-				}
-			break;
-		}
-		return true;
-    }
+    return true;
+  }
+  
+  public function form($player){
+    $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+    $form = $api->createSimpleForm(function (Player $player, int $data = null){
+      $result = $data;
+      if($result === null){
+        return true;
+      }
+      switch($result){
+        case 0:
+          $player->sendMessage("Bitch");
+        break;
+          
+        case 1:
+         $player->transfer("endergames.ddns.net", 25331);
+        break;
+      }
+    });
+    $form->setTitle("Play PvP");
+    $form->setContent("Choose A PvP Gamemode");
+    $form->addButton("Sumo");
+    $form->addButton("1vs1");
+    $form->addButton("Exit");
+    $form->sendToPlayer($player);
+    return $form;
+  }
 }

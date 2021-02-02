@@ -53,7 +53,7 @@ class Main extends PluginBase implements Listener {
         break;
           
         case 1:
-         $player->transfer(""172.96.172.82, 27198);
+         $player->transfer("172.96.172.82", 27198);
         break;
       }
     });

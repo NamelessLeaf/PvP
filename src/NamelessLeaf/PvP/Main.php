@@ -27,7 +27,7 @@ class Main extends PluginBase implements Listener {
 	
     public function onCommand(CommandSender $sender, Command $cmd, string $label,array $args) : bool {
 		switch($cmd->getName()){
-			case "server":
+			case "playpvp":
 				if($sender instanceof Player) {
 					$api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 					$form = $api->createSimpleForm(function (Player $sender, array $data){
@@ -45,10 +45,12 @@ class Main extends PluginBase implements Listener {
 								
 						}
 					});
-					$form->setTitle("TransferUI Screen");
-					$form->setContent("Please choose your server.");
-					$form->addButton(TextFormat::BOLD . "§c§lRebirth§b§lPE §a§lMinigames");	                          	
+					$form->setTitle("pvp transfer");
+					$form->setContent("choose a mode");
+					$form->addButton("1vs1");
+					$form-addButton("2vs2")
 					$form->sendToPlayer($sender);
+					return $form
 				}
 				else{
 					$sender->sendMessage(TextFormat::RED . "Use this Command in-game.");

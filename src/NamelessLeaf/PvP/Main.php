@@ -39,7 +39,6 @@ class Main extends PluginBase implements Listener {
 						switch($result){
 							case 0:
 								$command = "transferserver 147.135.233.227 19132";
-								$this->getServer()->getCommandMap()->dispatch($sender, $command);
 							break;
               
 								

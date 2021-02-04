@@ -49,11 +49,19 @@ class Main extends PluginBase implements Listener {
       }
       switch($result){
         case 0:
-          $player->transfer("us1.falixnodes.net", 26473);
+          $player->sendMessage("Sumo Comming Soon");
         break;
           
         case 1:
          $player->transfer("us1.falixnodes.net", 27198);
+        break;
+        
+        case 2:
+          $player->transfer("us1.falixnodes.net", 26473);
+        break;
+          
+        case 3:
+          $player->sendMessage("Free For All Not Out Yet")
         break;
       }
     });

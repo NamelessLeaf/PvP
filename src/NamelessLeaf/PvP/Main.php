@@ -61,7 +61,7 @@ class Main extends PluginBase implements Listener {
         break;
           
         case 3:
-          $player->sendMessage("Free For All Not Out Yet")
+          $player->sendMessage("Free For All Not Out Yet");
         break;
       }
     });

@@ -65,8 +65,8 @@ class Main extends PluginBase implements Listener {
         break;
       }
     });
-    $form->setTitle("Play PvP");
-    $form->setContent("Choose A PvP Gamemode");
+    $form->setTitle("§e>>§c§lPvP§r§e<<");
+    $form->setContent("Click To Choose A PvP Mode!");
     $form->addButton("Sumo");
     $form->addButton("1vs1");
     $form->addButton("Teams PvP");

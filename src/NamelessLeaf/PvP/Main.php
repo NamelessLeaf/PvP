@@ -49,11 +49,11 @@ class Main extends PluginBase implements Listener {
       }
       switch($result){
         case 0:
-          $player->sendMessage("Bitch");
+          $player->transfer("us1.falixnodes.net", 26473);
         break;
           
         case 1:
-         $player->transfer("172.96.172.82", 27198);
+         $player->transfer("us1.falixnodes.net", 27198);
         break;
       }
     });
@@ -61,6 +61,8 @@ class Main extends PluginBase implements Listener {
     $form->setContent("Choose A PvP Gamemode");
     $form->addButton("Sumo");
     $form->addButton("1vs1");
+    $form->addButton("Teams PvP");
+    $form->addButton("FFA");
     $form->addButton("Exit");
     $form->sendToPlayer($player);
     return $form;

@@ -7,4 +7,5 @@ api: 3.17.2
 commands:
  playpvp:
   description: "Open PvP UI"
+  default: true
   permission: use.pvp
